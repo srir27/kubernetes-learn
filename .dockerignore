@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+
+# IDEs
+.vscode
+.vs*
+
+# Python
+.venv
+__pycache__
+*.pyc
+
+# Node
+node_modules
+npm-debug.log
+
+# .NET
+bin
+obj
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Documentation
+README.md
+
+# Kubernetes
+*.yaml
+*.yml
