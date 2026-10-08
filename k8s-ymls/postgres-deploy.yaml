@@ -14,6 +14,10 @@ spec:
       labels:
         app: postgres
     spec:
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: postgres-pvc
       containers:
       - name: postgres
         image: postgres
@@ -29,3 +33,6 @@ spec:
         envFrom:
         - secretRef:
             name: voting-app-secrets
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgres-storage
