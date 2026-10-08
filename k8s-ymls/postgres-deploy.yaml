@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: voting-app
+  name: postgres
+  labels: 
+    app: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "300m"
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 5432
+        envFrom:
+        - secretRef:
+            name: voting-app-secrets
